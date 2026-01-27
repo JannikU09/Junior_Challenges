@@ -27,8 +27,25 @@
  */
 export function reverseString(str: string): string {
 
-  const reversedString = str.split("").reverse().join("");
-  return reversedString;
+  const arr = [];
+
+  for (var i = 0; i < str.length; i++) {
+    arr.push(str[i]);
+  };
+
+  const reversed = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    reversed.push(arr[arr.length - 1 - i]);
+  }
+
+  var result = "";
+
+  for (const letter of reversed) {
+    result += letter;
+  }
+
+  return result;
 
 
   // TODO: Implement this function
@@ -54,8 +71,15 @@ export function reverseString(str: string): string {
  */
 export function findMax(numbers: number[]): number {
 
-  const findMax = Math.max(...numbers);
-  return findMax;
+  let max = numbers[0];
+
+  for (let i = 1; i <= numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i];
+    };
+  };
+
+  return max;
 
   // TODO: Implement this function
   throw new Error("Not implemented");
@@ -82,10 +106,22 @@ export function findMax(numbers: number[]): number {
  */
 export function countVowels(str: string): number {
 
-  const vowels = /[aeiou]/gi;
-  const matches = str.match(vowels);
+  const arr = [];
+  let count = 0;
 
-  return matches ? matches.length : 0;
+  for (let i = 0; i < str.length; i++) {
+    arr.push(str[i]);
+  };
+
+  const result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "a" || arr[i] === "A" || arr[i] === "e" || arr[i] === "E" || arr[i] === "i" || arr[i] === "I" || arr[i] === "o" || arr[i] === "O" || arr[i] === "u" || arr[i] === "U") {
+      result.push(arr[i]);
+    };
+  };
+
+  return result.length;
 
   // TODO: Implement this function
   throw new Error("Not implemented");
@@ -112,15 +148,31 @@ export function countVowels(str: string): number {
  */
 export function isPalindrome(str: string): boolean {
 
-  const withoutSpaces = str.split(" ").join("").toLowerCase();
+  const withoutSpaces = str.replace(/ /gi, "").toLowerCase();
+  
+  const arr = [];
+  
+  for (var i = 0; i < withoutSpaces.length; i++) {
+    arr.push(withoutSpaces[i]);
+  };
 
-  const reverse = withoutSpaces.split("").reverse().join("");
+  const reversed = [];
 
-  let isPalindrome = false;
+  for (var i = 0; i < arr.length; i++) {
+    reversed.push(arr[arr.length - 1 - i]);
+  };
 
-  if (withoutSpaces === reverse) {
+  let result = "";
+
+  for(const letter of reversed){
+    result += letter;
+  };
+
+  var isPalindrome = false;
+
+  if(result === withoutSpaces){
     isPalindrome = true;
-  }
+  };
 
   return isPalindrome;
 
