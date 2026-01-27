@@ -106,22 +106,15 @@ export function findMax(numbers: number[]): number {
  */
 export function countVowels(str: string): number {
 
-  const arr = [];
   let count = 0;
 
   for (let i = 0; i < str.length; i++) {
-    arr.push(str[i]);
-  };
-
-  const result = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === "a" || arr[i] === "A" || arr[i] === "e" || arr[i] === "E" || arr[i] === "i" || arr[i] === "I" || arr[i] === "o" || arr[i] === "O" || arr[i] === "u" || arr[i] === "U") {
-      result.push(arr[i]);
+    if (str[i] === "a" || str[i] === "A" || str[i] === "e" || str[i] === "E" || str[i] === "i" || str[i] === "I" || str[i] === "o" || str[i] === "O" || str[i] === "u" || str[i] === "U") {
+      count++;
     };
   };
 
-  return result.length;
+  return count;
 
   // TODO: Implement this function
   throw new Error("Not implemented");
