@@ -1,0 +1,319 @@
+/**
+ * JavaScript/TypeScript Challenges for Junior Developers
+ *
+ * Instructions:
+ * 1. Each function has a description explaining what it should do
+ * 2. Implement the function body to pass the tests
+ * 3. Run tests with: npm test
+ * 4. All tests should pass when your implementations are correct
+ */
+
+// ============================================================================
+// CHALLENGE 1: Reverse a String
+// ============================================================================
+/**
+ * Reverses a given string.
+ *
+ * Example:
+ *   reverseString("hello") => "olleh"
+ *   reverseString("JavaScript") => "tpircSavaJ"
+ *   reverseString("") => ""
+ *
+ * Hint: You can use split(), reverse(), and join() methods,
+ * or loop through the string backwards.
+ *
+ * @param str - The string to reverse
+ * @returns The reversed string
+ */
+export function reverseString(str: string): string {
+
+  const reversedString = str.split("").reverse().join("");
+  return reversedString;
+
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 2: Find the Maximum Number
+// ============================================================================
+/**
+ * Finds the largest number in an array of numbers.
+ *
+ * Example:
+ *   findMax([1, 5, 3, 9, 2]) => 9
+ *   findMax([-1, -5, -3]) => -1
+ *   findMax([42]) => 42
+ *
+ * Hint: You can use Math.max() with spread operator,
+ * or loop through the array keeping track of the maximum.
+ *
+ * @param numbers - Array of numbers
+ * @returns The largest number in the array
+ */
+export function findMax(numbers: number[]): number {
+
+  const findMax = Math.max(...numbers);
+  return findMax;
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 3: Count Vowels
+// ============================================================================
+/**
+ * Counts the number of vowels (a, e, i, o, u) in a string.
+ * The count should be case-insensitive.
+ *
+ * Example:
+ *   countVowels("hello") => 2
+ *   countVowels("AEIOU") => 5
+ *   countVowels("xyz") => 0
+ *   countVowels("Beautiful") => 5
+ *
+ * Hint: Convert to lowercase first, then check each character
+ * against the vowels "aeiou".
+ *
+ * @param str - The input string
+ * @returns The count of vowels
+ */
+export function countVowels(str: string): number {
+
+  const vowels = /[aeiou]/gi;
+  const matches = str.match(vowels);
+
+  return matches ? matches.length : 0;
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 4: Check if Palindrome
+// ============================================================================
+/**
+ * Checks if a string is a palindrome (reads the same forwards and backwards).
+ * The check should be case-insensitive and ignore spaces.
+ *
+ * Example:
+ *   isPalindrome("racecar") => true
+ *   isPalindrome("hello") => false
+ *   isPalindrome("A man a plan a canal Panama") => true
+ *   isPalindrome("Was it a car or a cat I saw") => true
+ *
+ * Hint: Remove spaces, convert to lowercase, then compare
+ * with the reversed version.
+ *
+ * @param str - The string to check
+ * @returns True if palindrome, false otherwise
+ */
+export function isPalindrome(str: string): boolean {
+
+  const withoutSpaces = str.split(" ").join("").toLowerCase();
+
+  const reverse = withoutSpaces.split("").reverse().join("");
+
+  let isPalindrome = false;
+
+  if (withoutSpaces === reverse) {
+    isPalindrome = true;
+  }
+
+  return isPalindrome;
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 5: FizzBuzz
+// ============================================================================
+/**
+ * Returns an array of numbers from 1 to n, but:
+ * - For multiples of 3, use "Fizz" instead of the number
+ * - For multiples of 5, use "Buzz" instead of the number
+ * - For multiples of both 3 and 5, use "FizzBuzz"
+ *
+ * Example:
+ *   fizzBuzz(5) => [1, 2, "Fizz", 4, "Buzz"]
+ *   fizzBuzz(15) => [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]
+ *
+ * Hint: Use the modulo operator (%) to check divisibility.
+ * Check for divisibility by both 3 AND 5 first!
+ *
+ * @param n - The upper limit (inclusive)
+ * @returns Array of numbers and fizzbuzz strings
+ */
+export function fizzBuzz(n: number): (number | string)[] {
+
+  const arr: (number | string)[] = [];
+  for (let i = 1; i <= n; i++) {
+    arr.push(i);
+  };
+
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 == 0 && i % 5 == 0) {
+      arr[i - 1] = "FizzBuzz";
+    } else if (i % 3 == 0) {
+      arr[i - 1] = "Fizz";
+    } else if (i % 5 == 0) {
+      arr[i - 1] = "Buzz";
+    };
+  };
+
+  return arr;
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 6: Remove Duplicates
+// ============================================================================
+/**
+ * Removes duplicate values from an array, keeping only unique elements.
+ * The order of first occurrence should be preserved.
+ *
+ * Example:
+ *   removeDuplicates([1, 2, 2, 3, 4, 4, 5]) => [1, 2, 3, 4, 5]
+ *   removeDuplicates(["a", "b", "a", "c"]) => ["a", "b", "c"]
+ *   removeDuplicates([1, 1, 1]) => [1]
+ *
+ * Hint: You can use Set, or filter with indexOf.
+ *
+ * @param arr - Array with possible duplicates
+ * @returns Array with duplicates removed
+ */
+export function removeDuplicates<T>(arr: T[]): T[] {
+
+  const set = new Set(arr);
+
+  return [...set];
+
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 7: Capitalize Words
+// ============================================================================
+/**
+ * Capitalizes the first letter of each word in a string.
+ *
+ * Example:
+ *   capitalizeWords("hello world") => "Hello World"
+ *   capitalizeWords("javaScript is fun") => "JavaScript Is Fun"
+ *   capitalizeWords("a") => "A"
+ *
+ * Hint: Split by spaces, capitalize each word, then join back.
+ *
+ * @param str - The input string
+ * @returns String with capitalized words
+ */
+export function capitalizeWords(str: string): string {
+
+  const splitedWords = str.split(" ");
+  const capitalized = splitedWords.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+  const joined = capitalized.join(" ");
+
+  return joined;
+
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 8: Sum of Array
+// ============================================================================
+/**
+ * Calculates the sum of all numbers in an array.
+ *
+ * Example:
+ *   sumArray([1, 2, 3, 4, 5]) => 15
+ *   sumArray([10, -5, 3]) => 8
+ *   sumArray([]) => 0
+ *
+ * Hint: Use reduce() or a simple for loop.
+ *
+ * @param numbers - Array of numbers
+ * @returns The sum of all numbers
+ */
+export function sumArray(numbers: number[]): number {
+
+  var currentValue = 0;
+
+  for (const num of numbers) {
+    currentValue += num;
+  };
+
+  return currentValue;
+
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 9: Find Even Numbers
+// ============================================================================
+/**
+ * Returns a new array containing only the even numbers from the input array.
+ *
+ * Example:
+ *   findEvenNumbers([1, 2, 3, 4, 5, 6]) => [2, 4, 6]
+ *   findEvenNumbers([1, 3, 5]) => []
+ *   findEvenNumbers([2, 4, 6]) => [2, 4, 6]
+ *
+ * Hint: Use filter() with modulo operator.
+ *
+ * @param numbers - Array of numbers
+ * @returns Array containing only even numbers
+ */
+export function findEvenNumbers(numbers: number[]): number[] {
+
+  const filtered = numbers.filter((num) => num % 2 === 0);
+
+  return filtered;
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 10: Object Key Counter
+// ============================================================================
+/**
+ * Counts how many times each element appears in an array
+ * and returns an object with elements as keys and counts as values.
+ *
+ * Example:
+ *   countOccurrences(["a", "b", "a", "c", "b", "a"]) => { a: 3, b: 2, c: 1 }
+ *   countOccurrences([1, 1, 2, 3, 3, 3]) => { "1": 2, "2": 1, "3": 3 }
+ *   countOccurrences([]) => {}
+ *
+ * Hint: Loop through the array and use an object to track counts.
+ *
+ * @param arr - Array of elements
+ * @returns Object with element counts
+ */
+export function countOccurrences<T extends string | number>(
+  arr: T[],
+): Record<string, number> {
+
+  let count = arr.reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+  }, {} as Record<T, number>);
+
+  return count;
+
+
+
+  // TODO: Implement this function
+  throw new Error("Not implemented");
+}
