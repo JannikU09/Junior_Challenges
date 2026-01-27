@@ -35,8 +35,8 @@ export function reverseString(str: string): string {
 
   const reversed = [];
 
-  for (var i = 0; i < arr.length; i++) {
-    reversed.push(arr[arr.length - 1 - i]);
+  for (var i = arr.length - 1; i >= 0; i--) {
+    reversed.push(arr[i]);
   }
 
   var result = "";
@@ -142,28 +142,28 @@ export function countVowels(str: string): number {
 export function isPalindrome(str: string): boolean {
 
   const withoutSpaces = str.replace(/ /gi, "").toLowerCase();
-  
+
   const arr = [];
-  
+
   for (var i = 0; i < withoutSpaces.length; i++) {
     arr.push(withoutSpaces[i]);
   };
 
   const reversed = [];
 
-  for (var i = 0; i < arr.length; i++) {
-    reversed.push(arr[arr.length - 1 - i]);
+  for (var i = arr.length - 1; i >= 0; i--) {
+    reversed.push(arr[i]);
   };
 
   let result = "";
 
-  for(const letter of reversed){
+  for (const letter of reversed) {
     result += letter;
   };
 
   var isPalindrome = false;
 
-  if(result === withoutSpaces){
+  if (result === withoutSpaces) {
     isPalindrome = true;
   };
 
