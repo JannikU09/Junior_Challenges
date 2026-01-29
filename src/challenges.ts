@@ -139,31 +139,13 @@ export function isPalindrome(str: string): boolean {
 
   const withoutSpaces = str.replace(/ /gi, "").toLowerCase();
 
-  const arr = [];
-
-  for (var i = 0; i < withoutSpaces.length; i++) {
-    arr.push(withoutSpaces[i]);
+  for (let i = 0; i < withoutSpaces.length / 2; i++) {
+    if (withoutSpaces[i] !== withoutSpaces[withoutSpaces.length - 1 - i]) {
+      return false;
+    };
   };
-
-  const reversed = [];
-
-  for (var i = arr.length - 1; i >= 0; i--) {
-    reversed.push(arr[i]);
-  };
-
-  let result = "";
-
-  for (const letter of reversed) {
-    result += letter;
-  };
-
-  var isPalindrome = false;
-
-  if (result === withoutSpaces) {
-    isPalindrome = true;
-  };
-
-  return isPalindrome;
+  
+  return true;
 
   // TODO: Implement this function
 }
