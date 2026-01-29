@@ -47,9 +47,7 @@ export function reverseString(str: string): string {
 
   return result;
 
-
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -82,7 +80,6 @@ export function findMax(numbers: number[]): number {
   return max;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -117,7 +114,6 @@ export function countVowels(str: string): number {
   return count;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -170,7 +166,6 @@ export function isPalindrome(str: string): boolean {
   return isPalindrome;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -212,7 +207,6 @@ export function fizzBuzz(n: number): (number | string)[] {
   return arr;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -245,7 +239,6 @@ export function removeDuplicates<T>(arr: T[]): T[] {
   return withoutDuplicates;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -274,7 +267,6 @@ export function capitalizeWords(str: string): string {
 
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -305,7 +297,6 @@ export function sumArray(numbers: number[]): number {
 
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -337,7 +328,6 @@ export function findEvenNumbers(numbers: number[]): number[] {
   return evenNumbers;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -370,5 +360,4 @@ export function countOccurrences<T extends string | number>(
   return counts;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
