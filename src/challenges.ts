@@ -234,10 +234,15 @@ export function fizzBuzz(n: number): (number | string)[] {
  */
 export function removeDuplicates<T>(arr: T[]): T[] {
 
-  const set = new Set(arr);
+  const withoutDuplicates = [];
 
-  return [...set];
+  for (let i = 0; i < arr.length; i++) {
+    if (withoutDuplicates.indexOf(arr[i]) === -1) {
+      withoutDuplicates.push(arr[i]);
+    };
+  };
 
+  return withoutDuplicates;
 
   // TODO: Implement this function
   throw new Error("Not implemented");
@@ -321,9 +326,15 @@ export function sumArray(numbers: number[]): number {
  */
 export function findEvenNumbers(numbers: number[]): number[] {
 
-  const filtered = numbers.filter((num) => num % 2 === 0);
+  const evenNumbers = [];
 
-  return filtered;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      evenNumbers.push(numbers[i]);
+    };
+  };
+
+  return evenNumbers;
 
   // TODO: Implement this function
   throw new Error("Not implemented");
@@ -350,14 +361,13 @@ export function countOccurrences<T extends string | number>(
   arr: T[],
 ): Record<string, number> {
 
-  let count = arr.reduce((acc, curr) => {
-    acc[curr] = (acc[curr] || 0) + 1;
-    return acc;
-  }, {} as Record<T, number>);
+  const counts = {} as Record<T, number>;
 
-  return count;
+  for (const item of arr) {
+    counts[item] = counts[item] ? counts[item] += 1 : 1;
+  };
 
-
+  return counts;
 
   // TODO: Implement this function
   throw new Error("Not implemented");
