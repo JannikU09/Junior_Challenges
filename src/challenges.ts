@@ -27,23 +27,13 @@
  */
 export function reverseString(str: string): string {
 
-  const arr = [];
-
-  for (var i = 0; i < str.length; i++) {
-    arr.push(str[i]);
-  };
-
   const reversed = [];
+  let result = "";
 
-  for (var i = arr.length - 1; i >= 0; i--) {
-    reversed.push(arr[i]);
-  }
-
-  var result = "";
-
-  for (const letter of reversed) {
-    result += letter;
-  }
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed.push(str[i]);
+    result += str[i];
+  };
 
   return result;
 
@@ -144,7 +134,7 @@ export function isPalindrome(str: string): boolean {
       return false;
     };
   };
-  
+
   return true;
 
   // TODO: Implement this function
