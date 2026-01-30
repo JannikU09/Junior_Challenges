@@ -229,11 +229,9 @@ export function removeDuplicates<T>(arr: T[]): T[] {
  */
 export function capitalizeWords(str: string): string {
 
-  const splitedWords = str.split(" ");
-  const capitalized = splitedWords.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-  const joined = capitalized.join(" ");
+  const capitalizedWords = str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
-  return joined;
+  return capitalizedWords;
 
 
   // TODO: Implement this function
