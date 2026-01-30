@@ -27,11 +27,9 @@
  */
 export function reverseString(str: string): string {
 
-  const reversed = [];
   let result = "";
 
   for (let i = str.length - 1; i >= 0; i--) {
-    reversed.push(str[i]);
     result += str[i];
   };
 
