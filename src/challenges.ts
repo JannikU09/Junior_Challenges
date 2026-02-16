@@ -27,12 +27,15 @@
  */
 export function reverseString(str: string): string {
 
-  const reversedString = str.split("").reverse().join("");
-  return reversedString;
+  let result = "";
 
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i];
+  };
+
+  return result;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -54,11 +57,17 @@ export function reverseString(str: string): string {
  */
 export function findMax(numbers: number[]): number {
 
-  const findMax = Math.max(...numbers);
-  return findMax;
+  let max = numbers[0];
+
+  for (let i = 1; i <= numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i];
+    };
+  };
+
+  return max;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -82,13 +91,17 @@ export function findMax(numbers: number[]): number {
  */
 export function countVowels(str: string): number {
 
-  const vowels = /[aeiou]/gi;
-  const matches = str.match(vowels);
+  let count = 0;
 
-  return matches ? matches.length : 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "a" || str[i] === "A" || str[i] === "e" || str[i] === "E" || str[i] === "i" || str[i] === "I" || str[i] === "o" || str[i] === "O" || str[i] === "u" || str[i] === "U") {
+      count++;
+    };
+  };
+
+  return count;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -112,20 +125,17 @@ export function countVowels(str: string): number {
  */
 export function isPalindrome(str: string): boolean {
 
-  const withoutSpaces = str.split(" ").join("").toLowerCase();
+  const withoutSpaces = str.replace(/ /gi, "").toLowerCase();
 
-  const reverse = withoutSpaces.split("").reverse().join("");
+  for (let i = 0; i < withoutSpaces.length / 2; i++) {
+    if (withoutSpaces[i] !== withoutSpaces[withoutSpaces.length - 1 - i]) {
+      return false;
+    };
+  };
 
-  let isPalindrome = false;
-
-  if (withoutSpaces === reverse) {
-    isPalindrome = true;
-  }
-
-  return isPalindrome;
+  return true;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -167,7 +177,6 @@ export function fizzBuzz(n: number): (number | string)[] {
   return arr;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -189,13 +198,17 @@ export function fizzBuzz(n: number): (number | string)[] {
  */
 export function removeDuplicates<T>(arr: T[]): T[] {
 
-  const set = new Set(arr);
+  const withoutDuplicates = [];
 
-  return [...set];
+  for (let i = 0; i < arr.length; i++) {
+    if (withoutDuplicates.indexOf(arr[i]) === -1) {
+      withoutDuplicates.push(arr[i]);
+    };
+  };
 
+  return withoutDuplicates;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -216,15 +229,12 @@ export function removeDuplicates<T>(arr: T[]): T[] {
  */
 export function capitalizeWords(str: string): string {
 
-  const splitedWords = str.split(" ");
-  const capitalized = splitedWords.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-  const joined = capitalized.join(" ");
+  const capitalizedWords = str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
-  return joined;
+  return capitalizedWords;
 
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -255,7 +265,6 @@ export function sumArray(numbers: number[]): number {
 
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -276,12 +285,17 @@ export function sumArray(numbers: number[]): number {
  */
 export function findEvenNumbers(numbers: number[]): number[] {
 
-  const filtered = numbers.filter((num) => num % 2 === 0);
+  const evenNumbers = [];
 
-  return filtered;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      evenNumbers.push(numbers[i]);
+    };
+  };
+
+  return evenNumbers;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
 }
 
 // ============================================================================
@@ -305,15 +319,39 @@ export function countOccurrences<T extends string | number>(
   arr: T[],
 ): Record<string, number> {
 
-  let count = arr.reduce((acc, curr) => {
-    acc[curr] = (acc[curr] || 0) + 1;
-    return acc;
-  }, {} as Record<T, number>);
+  const counts = {} as Record<T, number>;
 
-  return count;
+  for (const item of arr) {
+    counts[item] = counts[item] ? counts[item] += 1 : 1;
+  };
 
-
+  return counts;
 
   // TODO: Implement this function
-  throw new Error("Not implemented");
+}
+
+// ============================================================================
+// CHALLENGE 11: Find the Average
+// ============================================================================
+/**
+ * Finds the average in an array of numbers.
+ *
+ * Example:
+ *   findAverage([1, 5, 3, 9, 2]) => 4
+ *   findAverage([-1, -5, -3]) => -3
+ *   findAverage([42]) => 42
+ *
+ * @param numbers - Array of numbers
+ * @returns The largest number in the array
+ */
+export function findAverage(numbers: number[]): number {
+  let sum = 0;
+  for (const num of numbers) {
+    sum += num;
+  };
+  const avg = sum / numbers.length;
+
+  return avg;
+
+  // TODO: Implement this function
 }
