@@ -10,6 +10,7 @@ import {
   sumArray,
   findEvenNumbers,
   countOccurrences,
+  findAverage,
 } from "./challenges";
 
 describe("Challenge 1: reverseString", () => {
@@ -258,5 +259,23 @@ describe("Challenge 10: countOccurrences", () => {
 
   it("should handle all unique elements", () => {
     expect(countOccurrences(["a", "b", "c"])).toEqual({ a: 1, b: 1, c: 1 });
+  });
+});
+
+describe("Challenge 11: findAverage", () => {
+  it("should find the average in a positive array", () => {
+    expect(findAverage([1, 5, 3, 9, 2])).toBe(4);
+  });
+
+  it("should find the average in a negative array", () => {
+    expect(findAverage([-1, -5, -3])).toBe(-3);
+  });
+
+  it("should find the average in an array with just one element", () => {
+    expect(findAverage([42])).toBe(42);
+  });
+
+  it("should handle mixed positive and negative numbers", () => {
+    expect(findAverage([-10, 0, 10, 5, -8])).toBe(-0.6);
   });
 });
