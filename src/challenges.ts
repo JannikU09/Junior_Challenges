@@ -346,7 +346,7 @@ export function countOccurrences<T extends string | number>(
  */
 export function findAverage(numbers: number[]): number {
   let sum = 0;
-  for(const num of numbers){
+  for (const num of numbers) {
     sum += num;
   };
   const avg = sum / numbers.length;
