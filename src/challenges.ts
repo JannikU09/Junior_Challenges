@@ -329,3 +329,29 @@ export function countOccurrences<T extends string | number>(
 
   // TODO: Implement this function
 }
+
+// ============================================================================
+// CHALLENGE 11: Find the Average
+// ============================================================================
+/**
+ * Finds the average in an array of numbers.
+ *
+ * Example:
+ *   findAverage([1, 5, 3, 9, 2]) => 4
+ *   findAverage([-1, -5, -3]) => -3
+ *   findAverage([42]) => 42
+ *
+ * @param numbers - Array of numbers
+ * @returns The largest number in the array
+ */
+export function findAverage(numbers: number[]): number {
+  let sum = 0;
+  for(const num of numbers){
+    sum += num;
+  };
+  const avg = sum / numbers.length;
+
+  return avg;
+
+  // TODO: Implement this function
+}
